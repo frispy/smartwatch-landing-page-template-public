@@ -1,0 +1,460 @@
+@import "styles";
+@import "media";
+
+// ------------- START ------------- //
+
+*,
+::before,
+::after {
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    transition: .2s ease;
+
+}
+html {
+    overflow-x: hidden;
+    background-size: cover;
+    font-family: Gilroy;
+
+}
+a {
+    text-decoration: none;
+    color: inherit; 
+
+}
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+// ------------- HEADER ------------- //
+
+header {    
+    width: 85%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex; flex-direction: row; align-items: center;
+    .nav__logo {
+        width: 40%;
+        font-size: $text-large-mobile;
+        font-weight: 700;
+    }
+    .nav__main {
+        width: 60%;
+        float: right;
+        height: 100px;
+        display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+        p {position: relative; cursor: pointer;}
+        // https://codepen.io/jstn/pen/zuDst
+        p::after {    
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            background: $text-main;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+          }
+          p:hover:after { 
+            width: 100%; 
+            left: 0; 
+          }
+            .nav__button {
+                width: 200px;
+                height: 60px;
+                a {
+                    font-size: $text-medium;
+                    font-weight: 300;
+                }
+        }
+    }
+
+}
+
+.header__mobile {
+    display: none;
+}
+
+// ------------- HOME ------------- //
+
+.home__section {
+    height: 1000px; 
+    display: grid;
+    grid-template: 1fr / 0.5fr 1.5fr;
+    align-items: center;
+    .home__text {
+        width: 100%;
+        height: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .home__text-subtitle {
+            margin-bottom: 0.2em;
+            font-weight: 300;
+        }
+        h4 {
+            margin-bottom: 0.3em;
+        }
+        p {
+            color: $text-secondrary;
+            margin-bottom: 1.3em;
+        }
+        .home__button {
+            margin-top: 2em;
+        }
+        
+    }
+    .home__image {
+        width: 100%;
+        height: 1000px;
+        background-image: url('../img/home/watch_title.png');
+        background-position: center;
+        background-size: cover 900px;
+        background-repeat: no-repeat;
+        
+    }
+    @media (max-width: 992px) {
+        .home__image {
+            background-size: 580px;
+        }
+    }
+}
+
+// ------------- SHOP ------------- //
+
+.shop__section {
+    height: 750px;
+    display: flex; flex-direction: column;
+    .shop__title {
+        width: 100%;
+        height: 250px;
+        display: flex; justify-content: center; align-items: center;
+    }
+    .shop__main {
+        width: 100%;
+        height: 500px;
+        margin: 0 auto;
+        display: grid;
+        grid-template: 1fr / 1fr 1fr;
+        justify-items: center; align-items: center;
+        .shop__product {
+            width: 400px;
+            height: 450px;
+            border-radius: 45px;
+            background-color: #f4f4f4;
+            background-image: url('../img/shop/watch_product.png');
+            background-position: center; background-repeat: no-repeat;
+            .shop__product-text {
+                height: 200px;
+                width: 150px;
+                display: flex; flex-direction: column; align-self: flex-end; justify-items: flex-end; text-align: end; 
+                margin-left: auto; margin-right: 2em; margin-top: 2em;
+                h6 {
+                    font-size: $text-large-mobile;
+                    font-weight: 500;
+                }
+                p {
+                    font-size: $text-medium;
+                    font-weight: 500;
+                    color: $text-secondrary;
+                }
+            }
+            .shop__product-purchase {
+                width: 70px;    
+                height: 70px;
+                border-radius: 20px;
+                background-color: #BABABA;
+                display: flex; justify-content: center; align-items: center;
+                margin-left: auto; margin-top: 8em; margin-right: 1.5em;
+
+            }
+            .shop__product-purchase:hover {
+                background-color: #dedede;
+            }
+            .shop__product-purchase:active {
+                background-color: #dedede;
+            }
+            
+        }
+        // hover -- 1
+        // .shop__product:hover {
+        //     box-shadow: 0px -20px 70px 5px #F4DFDA; // should depend on color specifically
+        // }
+        // hover -- 2
+        .shop__product:hover {
+            transform: scale(1.05);
+        }
+        
+    }
+
+}
+
+// ------------- FEATURE -- WATER ------------- //
+
+.feature__water {
+    .feature__water-image {
+        background-image: url('../img/feature/product_watch-water.png');
+    }
+    @media (max-width: 1200px) {
+        .feature__water-image {
+            background-size: 400px;
+        }
+    }
+    @media (max-width: 992px) {
+        .feature__water-image {
+            background-size: 300px;
+        }
+        .feature__water-text {
+            .feature__water-text-container {
+                p {
+                img {
+                    display: none;
+                }
+                }
+            }
+        }
+    }
+    .feature__water-text {
+        .feature__water-text-container {
+            p {
+            img {
+                width: 13px; height: 13px;
+                margin-bottom: 0.6em;
+            }
+            }
+        }
+    }
+}
+
+// ------------- APPS ------------- //
+
+.apps {
+    height: 850px;
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    .apps__image {
+        height: 100%; width: 100%;
+        display: flex; justify-content: center; align-items: center;
+    }
+    .apps__text {
+        width: 100%; height: 100%;
+        display: flex; justify-content: center; align-items: center;
+        h1 {
+            font-size: $text-large-mobile; text-align: center;
+        }  
+    }
+}
+
+// ------------- FEATURES -- CENTERED -- ACTIONS ------------- //
+
+.feature__actions {
+    .feature__actions-content {
+        background-image: url('../img/feature/product_watch-top.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        .feature__actions-text {
+            width: 100%;
+            height: 100%;
+            display: grid; grid-template: 1fr / repeat(4, 1fr); align-items: center;
+            .feature__actions-item {
+                width: 100%;
+                height: 80%;
+                display: flex; justify-content: center; align-items: center;
+                p {
+                    font-weight: 400;
+                    display: flex; align-items: center;
+                    img {
+                        margin-right: 0.3em;
+                    }
+                }
+            }
+            .feature__actions-item:nth-child(2) {
+                align-items: flex-start;
+            }
+            .feature__actions-item:nth-child(3) {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+// ------------- FEATURE -- ACTIVE ------------- //
+
+.feature__active {
+    .feature__active-image {
+        background-image: url(../img/feature/product_watch-active.png);
+    }
+    @media (max-width: 1200px) {
+        .feature__active-image {
+            background-size: 400px;
+        }
+    }
+    @media (max-width: 992px) {
+        .feature__active-image {
+            background-size: 300px;
+        }
+    }
+}
+
+// ------------- FEATURE -- LIFE -- CENTERED ------------- //
+
+.feature__life {
+    height: 1200px;
+    grid-template: 0.3fr 1.7fr / 1fr;
+    grid-gap: 80px;
+    .feature__life-text {
+        margin: 0 auto;
+    }
+    .feature__life-content {
+        background-image: url('../img/feature/feature_life-background.png');
+        background-position: top;
+        background-size: 1600px;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(1200px);
+        display: flex; justify-content: center; align-items: flex-end;
+        .feature__life-image {
+            width: 100%;
+            height: 500px;
+            background-image: url('../img/feature/feature__watch-hand.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 576px) {
+            .feature__life-image {
+                width: 100%;
+                height: 350px;
+                background-size: 280px;
+            }
+        }
+    }
+}
+
+// ------------- FEATURE -- CUSTOM -- CENTERED ------------- //
+
+.feature__custom {
+    height: 1000px;
+    .feature__custom-content {
+        background-image: url('../img/feature/feature_watch-custom.png');
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 1200px) {
+    .feature__custom {
+        .feature__custom-content {
+            background-size: 750px;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .feature__custom {
+        .feature__custom-content {
+            background-size: 550px;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .feature__custom {
+        .feature__custom-content {
+            background-size: 350px;
+        }
+    }
+}
+
+// ------------- FOOTER ------------- //
+
+footer {
+    width: 100%;
+    height: 500px;
+    display: flex; justify-content: center; flex-direction: column;
+    background-color: #FEFEFE;
+    box-shadow: 0px -8px 60px 5px rgba(0, 0, 0, 0.15);
+    .footer__col-1 {
+        width: 80%;
+        height: 360px;
+        margin: 0 auto;
+        display: grid;
+        grid-template: 1fr / 0.5fr 1.6fr 0.9fr;
+        grid-gap: 3em;
+        .footer__company {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: flex-start; 
+            h1 {
+                font-size: 36px; 
+            }
+            p {
+                margin-top: 0.8em;
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+        .footer__nav {
+            width: 100%; height: 100%;
+            display: grid;
+            grid-template: 1fr / repeat(3, 1fr);
+            .footer__nav-col {
+                width: 100%; height: 100%;
+                display: flex; flex-direction: column;
+                .footer__nav-title {
+                    .footer__nav-arrow {
+                        display: none;
+                    }
+                }
+                h2 {
+                    margin-bottom: 0.8em;
+                    font-size: $text-small;
+                    font-weight: 400;
+                } 
+                p {
+                    margin-bottom: 0.8em;
+                    font-size: $text-small;
+                    font-weight: 300;
+                    cursor: pointer;
+                }
+                p:hover {
+                    text-decoration: underline;
+                }
+                p:active {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .footer__social-media {
+            width: 100%; height: 100%; 
+            display: grid; grid-template: 0.4fr 1.6fr / 1fr;
+            .footer__social-media-text {
+                h1 {
+                    font-weight: 600;
+                    font-size: 36px;
+                }
+            }
+            .footer__social-media-icons {
+                height: 70%;
+                display: grid; grid-template: repeat(2, 1fr) / repeat(3, 1fr); align-items: center; justify-items: center;
+            }
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+    .footer__col-2 {
+        width: 80%;
+        margin: 0 auto;
+        display: flex; justify-content: center; align-items: center;
+        height: 40px;
+    }
+}
